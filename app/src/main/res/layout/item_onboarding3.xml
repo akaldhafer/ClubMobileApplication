@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="25dp"
+    tools:context="com.example.myclub.activities.OnBoardingPage2">
+
+
+    <ImageView
+        android:id="@+id/item_img_onboarding3"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="25dp"
+        android:src="@drawable/s2" />
+
+
+    <TextView
+        android:id="@+id/item_txt_title3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="Stay Tuned"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/item_txt_description3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="Browse all the posted activities and announcements by your clubs !"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="13sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/white"
+        android:onClick="onClickNextButton"
+        android:text="Next"
+        android:textColor="@color/black" />
+
+</LinearLayout>

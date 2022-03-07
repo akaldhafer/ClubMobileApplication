@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.myclub"
+    tools:ignore="ImpliedTouchscreenHardware,MissingLeanbackLauncher">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        tools:ignore="UnsupportedTvHardware" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        tools:ignore="UnsupportedTvHardware" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        tools:ignore="UnsupportedTvHardware" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyClub">
+
+        <activity android:name=".activities.OnBoardingPage1"/>
+        <activity android:name=".activities.OnBoardingPage2"/>
+        <activity android:name=".activities.OnBoardingPage3"/>
+        <activity android:name=".activities.OnBoardingPage4"/>
+        <activity android:name=".activities.OnBoardingPage5"/>
+        <activity android:name=".register.RegisterActivity"/>
+        <activity android:name=".activities.AdminHomeActivity"/>
+        <activity android:name=".activities.AdvisorHomeActivity"/>
+        <activity android:name=".activities.StudentHomeActivity"/>
+        <activity android:name=".activities.ProfileActivity"/>
+        <activity android:name=".activities.CreateClubActivity"/>
+        <activity android:name=".activities.ClubListActivity"/>
+        <activity android:name=".activities.ClubDetails"/>
+        <activity android:name=".activities.ClubPostList"/>
+        <activity android:name=".activities.BookClassroom"/>
+        <activity android:name=".activities.ApproveClubBookings"/>
+        <activity android:name=".activities.BookingList"/>
+        <activity android:name=".activities.ClubbookingList"/>
+        <activity android:name=".activities.JoinClubActivity"/>
+        <activity android:name=".activities.MyClubActivity"/>
+        <activity android:name=".activities.CreatePostActivity"/>
+
+        <activity android:name=".login.LoginActivity"/>
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+    </application>
+
+</manifest>

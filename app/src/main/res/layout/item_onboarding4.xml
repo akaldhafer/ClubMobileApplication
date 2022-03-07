@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp"
+    android:padding="25dp"
+    android:gravity="center"
+    tools:context="com.example.myclub.activities.OnBoardingPage3">
+
+
+    <ImageView
+        android:id="@+id/item_img_onboarding4"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="25dp"
+        android:src="@drawable/s3"
+        />
+
+
+    <TextView
+        android:id="@+id/item_txt_title4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="19sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="Manage Your Club"
+        android:layout_margin="5dp"
+        />
+
+    <TextView
+        android:id="@+id/item_txt_description4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:text="Post activities, announcements, and book classroom."
+        android:textColor="@android:color/darker_gray"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="30dp"
+        />
+    <Button
+        android:onClick="onClickNextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="end"
+        android:backgroundTint="@color/white"
+        android:text="Next"
+        android:textColor="@color/black" />
+
+</LinearLayout>
