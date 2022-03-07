@@ -3,7 +3,9 @@ package com.example.myclub.postAPI;
 public class PostModule {
     private String postID, postTitle, postDescription, postImgUrl, clubID, advisorEmail, isApproved,token;
 
-    public PostModule(String postID, String postTitle, String postDescription, String postImgUrl, String clubID,String advisorEmail,String isApproved, String token) {
+    public PostModule(String postID, String postTitle, String postDescription,
+                      String postImgUrl, String clubID,String advisorEmail,
+                      String isApproved, String token) {
         this.postID = postID;
         this.postTitle = postTitle;
         this.postDescription = postDescription;
