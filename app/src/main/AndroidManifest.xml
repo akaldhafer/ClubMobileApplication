@@ -55,10 +55,11 @@
         <activity android:name=".activities.JoinClubActivity"/>
         <activity android:name=".activities.MyClubActivity"/>
         <activity android:name=".activities.CreatePostActivity"/>
+        <activity android:name=".activities.MainActivity"/>
 
         <activity android:name=".login.LoginActivity"/>
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".login.CheckAuthUser"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

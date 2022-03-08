@@ -59,10 +59,11 @@
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyClub/app/src/main/res/layout/register_fragment.xml" value="0.23541666666666666" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyClub/app/src/main/res/layout/request_booking_activity.xml" value="0.2078125" />
         <entry key="..\:/Users/ak_al/AndroidStudioProjects/MyClub/app/src/main/res/layout/student_home_activity.xml" value="0.25" />
+        <entry key="..\:/Users/ak_al/Desktop/fyp work/MyClub Mobile App/app/src/main/res/layout/manage_post_activity.xml" value="0.25" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
