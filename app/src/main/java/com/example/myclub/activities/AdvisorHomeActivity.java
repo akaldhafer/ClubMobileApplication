@@ -94,7 +94,7 @@ public class AdvisorHomeActivity extends Activity {
     }
 
     public void onClickClubMemberButton(View view) {
-        Intent intent = new Intent(AdvisorHomeActivity.this, ProfileActivity.class);
+        Intent intent = new Intent(AdvisorHomeActivity.this, ViewClubMember.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("studentID", studentID);
         intent.putExtra("email", studentEmail);

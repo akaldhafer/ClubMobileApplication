@@ -47,7 +47,6 @@
         <activity android:name=".activities.CreateClubActivity"/>
         <activity android:name=".activities.ClubListActivity"/>
         <activity android:name=".activities.ClubDetails"/>
-        <activity android:name=".activities.ClubPostList"/>
         <activity android:name=".activities.BookClassroom"/>
         <activity android:name=".activities.ApproveClubBookings"/>
         <activity android:name=".activities.BookingList"/>
@@ -59,6 +58,7 @@
         <activity android:name=".activities.ApprovePostActivity"/>
         <activity android:name=".activities.ViewClubActivity"/>
         <activity android:name=".activities.ViewMyClubPosts"/>
+        <activity android:name=".activities.ViewClubMember"/>
         <activity android:name=".activities.ActivityDashboard"/>
 
 

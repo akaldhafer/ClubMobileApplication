@@ -13,10 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myclub.R;
-import com.example.myclub.activities.AdminHomeActivity;
-import com.example.myclub.activities.ClubListActivity;
-import com.example.myclub.activities.ClubPostList;
-import com.example.myclub.activities.CreateClubActivity;
 import com.example.myclub.activities.ViewClubActivity;
 import com.example.myclub.clubAPI.ClubModule;
 import com.google.android.gms.tasks.OnFailureListener;

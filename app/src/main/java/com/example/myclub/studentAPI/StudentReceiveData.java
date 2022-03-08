@@ -55,6 +55,8 @@ public class StudentReceiveData implements StudentFetchDataPresenter{
                             studentModule.setIsAdvisor(isAdvisor);
                             studentModule.setToken(token);
                             studentModule.setClubList(clubList);
+                            studentViewFetchDataMessage.onUpdateSuccess(studentModule);
+
 
                         } catch (Exception e) {
                             e.printStackTrace();

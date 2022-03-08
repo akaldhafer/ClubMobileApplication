@@ -2,7 +2,6 @@ package com.example.myclub.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myclub.R;
-import com.example.myclub.activities.ClubListActivity;
-import com.example.myclub.activities.ClubPostList;
 import com.example.myclub.classroomAPI.ClassroomModule;
-import com.example.myclub.clubAPI.ClubModule;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;

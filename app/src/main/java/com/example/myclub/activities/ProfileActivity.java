@@ -124,7 +124,7 @@ public class ProfileActivity extends Activity {
             intent.putStringArrayListExtra("clublist", clubList);
             startActivity(intent);
             finish();
-        }if(isAdvisor.equals("student")){
+        }else if(isAdvisor.equals("student")){
             Intent intent = new Intent(ProfileActivity.this, StudentHomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra("studentID", studentID);
