@@ -97,14 +97,13 @@ public class CreatePostActivity extends Activity {
         });
 
     }
-    private  void uploadFile(){
+    private void uploadFile(){
 
-        final ProgressDialog pd = new ProgressDialog(this);
-        pd.setTitle("Uploading the image...");
-        pd.show();
-        Log.d(TAG, "uploadfile: getLastPathSegment type " + imageUri.getLastPathSegment());
         if(imageUri != null){
-
+            Log.d(TAG, "uploadfile: getLastPathSegment type " + imageUri.getLastPathSegment());
+            final ProgressDialog pd = new ProgressDialog(this);
+            pd.setTitle("Uploading the image...");
+            pd.show();
             StorageReference fileReference =
                     storageReference.child(imageUri.getLastPathSegment());
             uploadtask = fileReference.putFile(imageUri)
@@ -172,7 +171,7 @@ public class CreatePostActivity extends Activity {
         String id = timestamp.toString().trim();
 
         if(!TextUtils.isEmpty(title)
-                && !TextUtils.isEmpty(Description)){
+                && !TextUtils.isEmpty(Description) && !TextUtils.isEmpty(imageuri)){
             System.out.println(id+title+Description+clubList.get(0)+studentEmail+Status+id);
             initCreateEvent(id, title, Description, imageuri, clubList.get(0).toString(),studentEmail,Status, id );
         }else{
@@ -181,6 +180,10 @@ public class CreatePostActivity extends Activity {
                 return;
             }if (TextUtils.isEmpty(Description)){
                 edDesc.setError("Event Description is required");
+                return;
+            }
+            if (TextUtils.isEmpty(imageuri)){
+                Toast.makeText(CreatePostActivity.this, "Image is Required", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
@@ -217,7 +220,11 @@ public class CreatePostActivity extends Activity {
         if(uploadtask != null && uploadtask.isInProgress()){
             Toast.makeText(CreatePostActivity.this, "Upload in progress", Toast.LENGTH_SHORT).show();
         }
-        uploadFile();
+        else{
+
+            uploadFile();
+        }
+
     }
 
     public void onClickViewPostButton(View view) {

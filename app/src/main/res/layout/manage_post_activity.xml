@@ -25,16 +25,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/gold"
+                android:id="@+id/approveTitle"
+                android:background="@color/black"
                 android:padding="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="Announcement Title"
                 android:textStyle="bold"
                 android:textAlignment="center"
                 android:textSize="28dp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/gold"/>
             <ImageView
-                android:id="@+id/setImage"
+                android:id="@+id/approveImage"
                 android:layout_width="300dp"
                 android:layout_height="250dp"
                 android:layout_gravity="center"
@@ -61,12 +62,12 @@
                         android:padding="10dp"
                         android:background="@color/black"
                         android:text="Description"
-                        android:textColor="@color/white"
+                        android:textColor="@color/gold"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/viewPostDescription"
+                        android:id="@+id/approveDescription"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="70"
@@ -99,13 +100,13 @@
                         android:lines="1"
                         android:padding="10dp"
                         android:text="Club Name"
-                        android:textColor="@color/white"
+                        android:textColor="@color/gold"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <TextView
 
-                        android:id="@+id/viewClubName"
+                        android:id="@+id/approveClubName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="70"
@@ -137,7 +138,7 @@
                         android:padding="10dp"
                         android:text="Advisor Email"
                         android:background="@color/black"
-                        android:textColor="@color/white"
+                        android:textColor="@color/gold"
                         android:textSize="14sp"
                         android:textStyle="bold" />
                     <TextView
@@ -145,7 +146,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="70"
-                        android:id="@+id/viewAdvisorEmail"
+                        android:id="@+id/approveAdvisorEmail"
                         android:textSize="14sp"
                         android:textStyle="normal"
                         android:text="Not found!"
@@ -164,21 +165,21 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:layout_width="44dp"
+                        android:layout_width="45dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="44"
+                        android:layout_weight="45"
                         android:lines="1"
                         android:padding="16dp"
                         android:text="Status"
-                        android:textColor="@color/white"
+                        android:textColor="@color/gold"
                         android:background="@color/black"
                         android:textSize="13sp"
                         android:textStyle="bold" />
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="60"
-                        android:id="@+id/viewStatus"
+                        android:layout_weight="59"
+                        android:id="@+id/approveStatus"
                         android:textSize="14sp"
                         android:textStyle="normal"
                         android:text="Pending.."
@@ -188,7 +189,7 @@
                     <Button
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/EditStatus"
+                        android:id="@+id/approveEditStatus"
                         android:backgroundTint="@color/gold"
                         android:padding="6dp"
                         android:text="Accept"

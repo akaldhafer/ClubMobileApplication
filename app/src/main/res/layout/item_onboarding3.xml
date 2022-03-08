@@ -45,9 +45,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginTop="40dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/gold"
         android:onClick="onClickNextButton"
         android:text="Next"
-        android:textColor="@color/black" />
+        android:textColor="@color/white" />
 
 </LinearLayout>

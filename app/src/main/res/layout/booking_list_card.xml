@@ -41,7 +41,7 @@
                         android:lines="1"
                         android:padding="10dp"
                         android:text="Room Location"
-                        android:textColor="@color/white"
+                        android:textColor="@color/gold"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -81,7 +81,7 @@
                         android:lines="1"
                         android:padding="10dp"
                         android:text="Club Name"
-                        android:textColor="@color/white"
+                        android:textColor="@color/gold"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -121,7 +121,7 @@
                         android:lines="1"
                         android:padding="10dp"
                         android:text="Advisor Email"
-                        android:textColor="@color/white"
+                        android:textColor="@color/gold"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -154,7 +154,7 @@
                         android:lines="1"
                         android:padding="10dp"
                         android:text="Booking Time"
-                        android:textColor="@color/white"
+                        android:textColor="@color/gold"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -187,7 +187,7 @@
                         android:lines="1"
                         android:padding="10dp"
                         android:text="Booking Date"
-                        android:textColor="@color/white"
+                        android:textColor="@color/gold"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -221,7 +221,7 @@
                         android:lines="1"
                         android:padding="16dp"
                         android:text="Status"
-                        android:textColor="@color/white"
+                        android:textColor="@color/gold"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
