@@ -17,6 +17,7 @@ import com.example.myclub.activities.AdminHomeActivity;
 import com.example.myclub.activities.ClubListActivity;
 import com.example.myclub.activities.ClubPostList;
 import com.example.myclub.activities.CreateClubActivity;
+import com.example.myclub.activities.ViewClubActivity;
 import com.example.myclub.clubAPI.ClubModule;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -62,7 +63,7 @@ public class ClubListAdapter extends RecyclerView.Adapter<ClubListAdapter.ViewHo
         holder.category.setText(clubModuleArrayList.get(holder.getAdapterPosition()).getClubType());
         holder.member.setText(clubModuleArrayList.get(holder.getAdapterPosition()).getClubMemberList().toString());
         String tok= clubModuleArrayList.get(holder.getAdapterPosition()).getToken();
-
+        String email= clubModuleArrayList.get(holder.getAdapterPosition()).getClubAdvisor();
         holder.delete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -108,7 +109,7 @@ public class ClubListAdapter extends RecyclerView.Adapter<ClubListAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 //todo fix the call and variable init
-                Intent intent = new Intent(v.getContext(), ClubPostList.class);
+                Intent intent = new Intent(v.getContext(), ViewClubActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("club", tok);
                 intent.putExtra("studentID", studentID);
@@ -116,6 +117,8 @@ public class ClubListAdapter extends RecyclerView.Adapter<ClubListAdapter.ViewHo
                 intent.putExtra("password",studentPassword);
                 intent.putExtra("name", studentName);
                 intent.putExtra("role", isAdvisor);
+                intent.putExtra("advisorEmail",email);
+                System.out.println("The current advisor email "+email);
                 intent.putStringArrayListExtra("clublist", clubList);
                 v.getContext().startActivity(intent);
             }

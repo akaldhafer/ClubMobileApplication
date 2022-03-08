@@ -41,6 +41,7 @@ public class ClubListActivity extends AppCompatActivity implements ClubViewFetch
         studentPassword = getIntent().getStringExtra("password");
         studentName = getIntent().getStringExtra("name");
         clubList = getIntent().getStringArrayListExtra("clublist");
+
         System.out.println("on start run "+studentEmail);
 
         ListDataView = findViewById(R.id.ListView);
