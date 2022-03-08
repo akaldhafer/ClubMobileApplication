@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myclub.R;
-import com.example.myclub.adapters.ApprovePostAdapter;
 import com.example.myclub.adapters.ViewClubActivityAdapter;
+import com.example.myclub.adapters.ViewClubPostAdapter;
 import com.example.myclub.login.LoginActivity;
 import com.example.myclub.postAPI.PostModule;
 import com.example.myclub.postAPI.PostReceiveData;
@@ -21,13 +21,13 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-public class ViewClubActivity extends Activity implements PostViewFetchDataMessage {
+public class ViewMyClubPosts extends Activity implements PostViewFetchDataMessage {
 
     private String studentID, studentEmail,studentPassword,studentName, isAdvisor, advisorEmail;
     ArrayList<String> clubList;
 
     private RecyclerView ListDataView;
-    private ViewClubActivityAdapter approvePostAdapter;
+    private ViewClubPostAdapter approvePostAdapter;
     ArrayList<PostModule> postModuleArrayList = new ArrayList<>();
     private TextView title;
     private PostReceiveData postReceiveData;
@@ -59,7 +59,7 @@ public class ViewClubActivity extends Activity implements PostViewFetchDataMessa
         LinearLayoutManager manager = new LinearLayoutManager(this);
         ListDataView.setLayoutManager(manager);
         ListDataView.setHasFixedSize(true);
-        approvePostAdapter = new ViewClubActivityAdapter(this, postModuleArrayList);
+        approvePostAdapter = new ViewClubPostAdapter(this, postModuleArrayList);
         ListDataView.setAdapter(approvePostAdapter);
         ListDataView.invalidate();
     }
@@ -87,42 +87,21 @@ public class ViewClubActivity extends Activity implements PostViewFetchDataMessa
 
     @Override
     public void onUpdateFailure(String message) {
-        Toast.makeText(ViewClubActivity.this, message, Toast.LENGTH_LONG).show();
+        Toast.makeText(ViewMyClubPosts.this, message, Toast.LENGTH_LONG).show();
     }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        if(isAdvisor.equals("admin")){
-            Intent intent = new Intent(ViewClubActivity.this, AdminHomeActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra("studentID", studentID);
-            intent.putExtra("email", studentEmail);
-            intent.putExtra("password",studentPassword);
-            intent.putExtra("name", studentName);
-            intent.putExtra("role", isAdvisor);
-            intent.putStringArrayListExtra("clublist", clubList);
-            startActivity(intent);
-            finish();
-        }
-        else if(isAdvisor.equals("advisor")){
-            Intent intent = new Intent(ViewClubActivity.this, AdvisorHomeActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra("studentID", studentID);
-            intent.putExtra("email", studentEmail);
-            intent.putExtra("password",studentPassword);
-            intent.putExtra("name", studentName);
-            intent.putExtra("role", isAdvisor);
-            intent.putStringArrayListExtra("clublist", clubList);
-            startActivity(intent);
-            finish();
-        }
-        else{
-            Toast.makeText(ViewClubActivity.this, "Please re-login", Toast.LENGTH_LONG).show();
-            FirebaseAuth.getInstance().signOut();
-            Intent intent = new Intent(ViewClubActivity.this, LoginActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            finish();
-        }
+        Intent intent = new Intent(ViewMyClubPosts.this, StudentHomeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("studentID", studentID);
+        intent.putExtra("email", studentEmail);
+        intent.putExtra("password",studentPassword);
+        intent.putExtra("name", studentName);
+        intent.putExtra("role", isAdvisor);
+        intent.putStringArrayListExtra("clublist", clubList);
+        startActivity(intent);
+        finish();
     }
 }
+

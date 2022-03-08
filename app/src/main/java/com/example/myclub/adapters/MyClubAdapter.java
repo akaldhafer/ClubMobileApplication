@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myclub.R;
 import com.example.myclub.activities.ClubPostList;
+import com.example.myclub.activities.ViewMyClubPosts;
 import com.example.myclub.clubAPI.ClubModule;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -59,7 +60,7 @@ public class MyClubAdapter extends RecyclerView.Adapter<MyClubAdapter.ViewHolder
         holder.desc.setText(clubModuleArrayList.get(holder.getAdapterPosition()).getClubDescription());
         holder.category.setText(clubModuleArrayList.get(holder.getAdapterPosition()).getClubType());
         String tok= clubModuleArrayList.get(holder.getAdapterPosition()).getToken();
-
+        String advisorEmail = clubModuleArrayList.get(holder.getAdapterPosition()).getClubAdvisor();
         holder.leave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -105,13 +106,14 @@ public class MyClubAdapter extends RecyclerView.Adapter<MyClubAdapter.ViewHolder
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ClubPostList.class);
+                Intent intent = new Intent(v.getContext(), ViewMyClubPosts.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("club", tok);
                 intent.putExtra("studentID", studentID);
                 intent.putExtra("email", studentEmail);
                 intent.putExtra("password",studentPassword);
                 intent.putExtra("name", studentName);
+                intent.putExtra("advisorEmail",advisorEmail);
                 intent.putExtra("role", isAdvisor);
                 intent.putStringArrayListExtra("clublist", clubList);
                 v.getContext().startActivity(intent);
@@ -124,7 +126,7 @@ public class MyClubAdapter extends RecyclerView.Adapter<MyClubAdapter.ViewHolder
         return clubModuleArrayList.size();
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView name,desc, category, email, member;
+        private TextView name,desc, category, email;
         private Button leave,view;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

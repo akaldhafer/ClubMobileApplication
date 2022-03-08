@@ -210,8 +210,6 @@ public class CreatePostActivity extends Activity {
         CropImage.activity()
                 .setGuidelines(CropImageView.Guidelines.ON)
                 .start(CreatePostActivity.this);
-        //update
-
 
     }
 
@@ -229,12 +227,13 @@ public class CreatePostActivity extends Activity {
 
     public void onClickViewPostButton(View view) {
 
-        Intent intent = new Intent(CreatePostActivity.this, AdvisorHomeActivity.class);
+        Intent intent = new Intent(CreatePostActivity.this, ViewClubActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("studentID", studentID);
         intent.putExtra("email", studentEmail);
         intent.putExtra("password",studentPassword);
         intent.putExtra("name", studentName);
+        intent.putExtra("advisorEmail",studentEmail);
         intent.putExtra("role", isAdvisor);
         intent.putStringArrayListExtra("clublist", clubList);
         startActivity(intent);

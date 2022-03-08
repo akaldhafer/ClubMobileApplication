@@ -89,7 +89,7 @@ public class StudentHomeActivity extends Activity {
     }
 
     public void onClickActivityButton(View view) {
-        Intent intent = new Intent(StudentHomeActivity.this, ProfileActivity.class);
+        Intent intent = new Intent(StudentHomeActivity.this, ActivityDashboard.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("studentID", studentID);
         intent.putExtra("email", studentEmail);

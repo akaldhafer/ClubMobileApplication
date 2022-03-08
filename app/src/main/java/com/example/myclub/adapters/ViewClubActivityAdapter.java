@@ -60,18 +60,18 @@ public class ViewClubActivityAdapter extends RecyclerView.Adapter<ViewClubActivi
                 firebaseFirestore = FirebaseFirestore.getInstance();
                 DocumentReference record = firebaseFirestore.collection("PostData").document(tok);
                 record.delete().addOnSuccessListener(new OnSuccessListener< Void >() {
-                            @SuppressLint("ResourceAsColor")
-                            @Override
-                            public void onSuccess(Void aVoid) {
+                    @SuppressLint("ResourceAsColor")
+                    @Override
+                    public void onSuccess(Void aVoid) {
 
-                                Toast.makeText(v.getContext(), "Post Delete", Toast.LENGTH_LONG).show();
-                                //delete from the ui
-                                postModuleArrayList.remove(holder.getAdapterPosition());
-                                notifyItemRemoved(holder.getAdapterPosition());
-                                notifyItemRangeChanged(holder.getAdapterPosition(), postModuleArrayList.size());
+                        Toast.makeText(v.getContext(), "Post Delete", Toast.LENGTH_LONG).show();
+                        //delete from the ui
+                        postModuleArrayList.remove(holder.getAdapterPosition());
+                        notifyItemRemoved(holder.getAdapterPosition());
+                        notifyItemRangeChanged(holder.getAdapterPosition(), postModuleArrayList.size());
 
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(v.getContext(), "Something went wrong, check the internet connection",Toast.LENGTH_LONG).show();

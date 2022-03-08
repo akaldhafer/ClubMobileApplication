@@ -86,20 +86,7 @@ public class ClubDetails extends Activity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(ClubDetails.this, AdvisorHomeActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("studentID", studentID);
-        intent.putExtra("email", studentEmail);
-        intent.putExtra("password",studentPassword);
-        intent.putExtra("name", studentName);
-        intent.putExtra("role", isAdvisor);
-        intent.putStringArrayListExtra("clublist", clubList);
-        startActivity(intent);
-        finish();
-    }
+
 
     public void onClickUpdateButton(View view) {
 
@@ -135,7 +122,22 @@ public class ClubDetails extends Activity {
     }
 
     public void onClickViewActivityButton(View view) {
-        Intent intent = new Intent(ClubDetails.this, ClubPostList.class);
+        Intent intent = new Intent(ClubDetails.this, ViewClubActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("studentID", studentID);
+        intent.putExtra("email", studentEmail);
+        intent.putExtra("password",studentPassword);
+        intent.putExtra("name", studentName);
+        intent.putExtra("role", isAdvisor);
+        intent.putExtra("advisorEmail",studentEmail);
+        intent.putStringArrayListExtra("clublist", clubList);
+        startActivity(intent);
+        finish();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(ClubDetails.this, AdvisorHomeActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("studentID", studentID);
         intent.putExtra("email", studentEmail);

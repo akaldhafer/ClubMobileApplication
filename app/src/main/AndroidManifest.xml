@@ -58,6 +58,9 @@
         <activity android:name=".activities.MainActivity"/>
         <activity android:name=".activities.ApprovePostActivity"/>
         <activity android:name=".activities.ViewClubActivity"/>
+        <activity android:name=".activities.ViewMyClubPosts"/>
+        <activity android:name=".activities.ActivityDashboard"/>
+
 
         <activity android:name=".login.LoginActivity"/>
         <activity
