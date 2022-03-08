@@ -1,4 +1,5 @@
 "# MyClubApp" 
+
 To run:
 1. install latest version of android studio and Java SDK
 2. clone the project or download it as zip file then unzip it
