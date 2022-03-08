@@ -207,6 +207,9 @@ public class CreatePostActivity extends Activity {
         CropImage.activity()
                 .setGuidelines(CropImageView.Guidelines.ON)
                 .start(CreatePostActivity.this);
+        //update
+
+
     }
 
 
