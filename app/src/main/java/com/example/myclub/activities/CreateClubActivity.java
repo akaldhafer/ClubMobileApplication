@@ -42,6 +42,8 @@ import fr.ganfra.materialspinner.MaterialSpinner;
 public class CreateClubActivity extends Activity {
     private String studentID, studentEmail,studentPassword,studentName, isAdvisor,  advisorEmail;
     ArrayList<String> clubList;
+    ArrayList<String> AdvisorClubList = new ArrayList<>();
+
     String[] advisorlists;
     private FirebaseFirestore firebaseFirestore;
 
@@ -55,17 +57,6 @@ public class CreateClubActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags (WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.create_club_activity);
-
-
-        spinnerAdvisor = findViewById(R.id.spinnerAdvisor);
-        textClubName = findViewById(R.id.editTxtClubName);
-        textClubCategory = findViewById(R.id.editTxtCategory);
-        textClubDesc = findViewById(R.id.editTxtClubDescription);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         studentID = getIntent().getStringExtra("studentID");
         studentEmail = getIntent().getStringExtra("email");
         isAdvisor = getIntent().getStringExtra("role");
@@ -75,7 +66,12 @@ public class CreateClubActivity extends Activity {
         getStudentList();
         System.out.println("done getting emails");
 
+        spinnerAdvisor = findViewById(R.id.spinnerAdvisor);
+        textClubName = findViewById(R.id.editTxtClubName);
+        textClubCategory = findViewById(R.id.editTxtCategory);
+        textClubDesc = findViewById(R.id.editTxtClubDescription);
     }
+
 
     private void ValidateRecord() {
 
@@ -120,6 +116,7 @@ public class CreateClubActivity extends Activity {
         clubMemberList.add(0,advisorEmail);
         clubPostList.add(0,"Welcome Post");
         //clubMemberList.add(clubAdvisor);
+        AdvisorClubList.add(clubName);
         ClubModule clubModule = new ClubModule(clubID,clubName, clubDescription,clubAdvisor, clubType, token, clubMemberList,clubPostList);
         FirebaseFirestore.getInstance().collection("ClubData").document(token).set(clubModule, SetOptions.merge())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -128,7 +125,7 @@ public class CreateClubActivity extends Activity {
                         if(task.isSuccessful()){
                             firebaseFirestore = FirebaseFirestore.getInstance();
                             DocumentReference record = firebaseFirestore.collection("StudentData").document(clubAdvisor);
-                            record.update("isAdvisor", "advisor","clubList",clubList)
+                            record.update("isAdvisor", "advisor","clubList",AdvisorClubList)
                                     .addOnSuccessListener(new OnSuccessListener< Void >() {
                                         @Override
                                         public void onSuccess(Void aVoid) {
@@ -158,7 +155,6 @@ public class CreateClubActivity extends Activity {
     }
 
     void getStudentList(){
-
         FirebaseFirestore.getInstance().collection("StudentData")
                 .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -170,13 +166,11 @@ public class CreateClubActivity extends Activity {
                             for (int i=0; i<task.getResult().getDocuments().size(); i++){
                                 String email =task.getResult().getDocuments().get(i).get("studentID").toString();
                                 String role =task.getResult().getDocuments().get(i).get("isAdvisor").toString();
-
                                 if(role.equals("student")){
                                     listOfStudent.add(email);
                                 }
                                 advisorlists = listOfStudent.toArray(new String[listOfStudent.size()]);
                             }
-
                             ArrayAdapter<String> adapter = new ArrayAdapter<String>(CreateClubActivity.this, android.R.layout.simple_spinner_item, advisorlists);
                             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                             spinnerAdvisor.setAdapter(adapter);

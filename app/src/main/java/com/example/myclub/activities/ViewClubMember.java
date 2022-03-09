@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,12 +18,18 @@ import com.example.myclub.classroomAPI.ClassroomReceiveData;
 import com.example.myclub.studentAPI.StudentModule;
 import com.example.myclub.studentAPI.StudentReceiveData;
 import com.example.myclub.studentAPI.StudentViewFetchDataMessage;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
 public class ViewClubMember extends Activity implements StudentViewFetchDataMessage {
-    private String studentID, studentEmail,studentPassword,studentName, isAdvisor;
-    ArrayList<String> clubList;
+    private String studentID, studentEmail,studentPassword,studentName, isAdvisor, token;
+    ArrayList<String> clubList = new ArrayList<>();
+    ArrayList<String> clubMember = new ArrayList<>();
 
     private RecyclerView ListDataView;
     private MemberAdpater memberAdpater;
@@ -43,12 +50,7 @@ public class ViewClubMember extends Activity implements StudentViewFetchDataMess
         clubList = getIntent().getStringArrayListExtra("clublist");
         System.out.println("on start run "+studentEmail);
 
-        ListDataView = findViewById(R.id.ListView);
-        title = findViewById(R.id.settxtTitle);
-        title.setText("Club Members");
-        studentReceiveData = new StudentReceiveData(this,this);
-        RecyclerViewMethods();
-        studentReceiveData.onSuccessUpdate(this);
+        getClubMember();
 
     }
 
@@ -56,10 +58,50 @@ public class ViewClubMember extends Activity implements StudentViewFetchDataMess
         LinearLayoutManager manager = new LinearLayoutManager(this);
         ListDataView.setLayoutManager(manager);
         ListDataView.setHasFixedSize(true);
-        memberAdpater = new MemberAdpater(this, studentModuleArrayList,studentID,studentEmail,studentPassword,studentName,isAdvisor,clubList);
+
+        System.out.println(token+clubMember+"weeeeeeeeeeeeeeeeeeeeeeek");
+        memberAdpater = new MemberAdpater(this, studentModuleArrayList,studentID,studentEmail,studentPassword,studentName,isAdvisor,clubList, clubMember,token);
         ListDataView.setAdapter(memberAdpater);
         ListDataView.invalidate();
     }
+    private void getClubMember(){
+        FirebaseFirestore.getInstance().collection("ClubData")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+
+                    for(int i = 0; i<task.getResult().size(); i++){
+                        //fetch data
+                        String clubAdvisor = task.getResult().getDocuments().get(i).getString("clubAdvisor");
+                        String tok = task.getResult().getDocuments().get(i).getString("token");
+                        ArrayList<String> clubMemberList =(ArrayList<String>) task.getResult().getDocuments().get(i).get("clubMemberList");
+                        //assign data and decrypt them
+                        if(clubAdvisor.equals(studentEmail)){
+                            clubMember.addAll(clubMemberList);
+                            System.out.println("read "+clubMember);
+                            token= tok;
+                            ListDataView = findViewById(R.id.ListView);
+                            title = findViewById(R.id.settxtTitle);
+                            title.setText("Club Members");
+                            studentReceiveData = new StudentReceiveData(ViewClubMember.this,ViewClubMember.this);
+                            RecyclerViewMethods();
+                            studentReceiveData.onSuccessUpdate(ViewClubMember.this);
+
+                        }
+
+
+                    }
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                System.out.println(e.getMessage());
+            }
+        });
+    }
+
 
     @Override
     public void onUpdateSuccess(StudentModule message) {

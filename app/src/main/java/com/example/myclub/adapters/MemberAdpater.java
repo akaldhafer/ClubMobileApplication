@@ -35,7 +35,7 @@ public class MemberAdpater  extends RecyclerView.Adapter<MemberAdpater.ViewHolde
 
     private FirebaseFirestore firebaseFirestore;
 
-    public MemberAdpater(Context context, ArrayList<StudentModule> studentModuleArrayList, String studentID, String studentEmail, String studentPassword, String studentName, String isAdvisor, ArrayList<String> clubList) {
+    public MemberAdpater(Context context, ArrayList<StudentModule> studentModuleArrayList, String studentID, String studentEmail, String studentPassword, String studentName, String isAdvisor, ArrayList<String> clubList,ArrayList<String> clubMember, String token) {
         this.context = context;
         this.studentModuleArrayList = studentModuleArrayList;
         this.studentID = studentID;
@@ -44,6 +44,8 @@ public class MemberAdpater  extends RecyclerView.Adapter<MemberAdpater.ViewHolde
         this.studentName = studentName;
         this.isAdvisor = isAdvisor;
         this.clubList = clubList;
+        this.clubMember = clubMember;
+        this.token =token;
     }
 
     @NonNull
@@ -63,10 +65,10 @@ public class MemberAdpater  extends RecyclerView.Adapter<MemberAdpater.ViewHolde
         holder.name.setText(studentModuleArrayList.get(holder.getAdapterPosition()).getStudentName());
 
         holder.delete.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                getClubMember();
 
-                if(token.isEmpty() || clubMember.isEmpty()){
+            public void onClick(View v) {
+
+                if(token == null || clubMember.isEmpty() || studentModuleArrayList.get(holder.getAdapterPosition()).getStudentID().equals(studentEmail)){
                     Toast.makeText(v.getContext(), "Could not remove member",Toast.LENGTH_LONG).show();
                 }else {
                     ArrayList<String> studentClubs = new ArrayList<>();
@@ -86,7 +88,7 @@ public class MemberAdpater  extends RecyclerView.Adapter<MemberAdpater.ViewHolde
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(v.getContext(), "Member Removed !", Toast.LENGTH_SHORT).show();
-
+                            clubMember.clear();
                             DocumentReference record = FirebaseFirestore.getInstance().collection("StudentData").document(studentModuleArrayList.get(holder.getAdapterPosition()).getStudentID());
                             record.update("clubList", studentClubs)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -116,38 +118,6 @@ public class MemberAdpater  extends RecyclerView.Adapter<MemberAdpater.ViewHolde
         });
 
 
-    }
-    void getClubMember(){
-        FirebaseFirestore.getInstance().collection("ClubData")
-                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()){
-
-                    for(int i = 0; i<task.getResult().size(); i++){
-                        //fetch data
-                        String clubID = task.getResult().getDocuments().get(i).getString("clubID");
-                        String clubAdvisor = task.getResult().getDocuments().get(i).getString("clubAdvisor");
-                        String tok = task.getResult().getDocuments().get(i).getString("token");
-
-                        ArrayList<String> clubMemberList =(ArrayList<String>) task.getResult().getDocuments().get(i).get("clubMemberList");
-                        //assign data and decrypt them
-                        if(clubAdvisor.equals(studentEmail)){
-                            clubMember.addAll(clubMemberList);
-                            System.out.println("read "+clubMember);
-                            token= tok;
-                        }
-
-
-                    }
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                System.out.println(e.getMessage());
-            }
-        });
     }
 
     @Override
