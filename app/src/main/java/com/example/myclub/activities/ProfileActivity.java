@@ -49,7 +49,7 @@ public class ProfileActivity extends Activity {
 
         edName.setText(studentName);
         vEmail.setText(studentEmail);
-        if(clubList == null && clubList.isEmpty()){
+        if(clubList == null){
             vclublist.setText("No Club Yet, try to join a club !");
         }else{
             vclublist.setText(clubList.toString());

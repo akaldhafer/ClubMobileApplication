@@ -63,7 +63,7 @@ public class ClubbookingList extends Activity implements ClassroomViewFetchMessa
     public void onUpdateSuccess(ClassroomModule message) {
         System.out.println("Get Update "+message.getBookedByStudentEmail());
 
-        if(message != null){
+        if(message != null && message.getBookedByStudentEmail().equals(studentEmail)){
             ClassroomModule classroomModule = new ClassroomModule();
             classroomModule.setBookedDate(message.getBookedDate());
             classroomModule.setClassID(message.getClassID());

@@ -77,6 +77,7 @@ public class LoginActivity extends Activity {
                                                 String isAdvisor = task.getResult().getDocuments().get(i).getString("isAdvisor");
                                                 String token = task.getResult().getDocuments().get(i).getString("token");
                                                 ArrayList<String> clubList =(ArrayList<String>) task.getResult().getDocuments().get(i).get("clubList");
+
                                                 if(studentEmail.equals(email) && isAdvisor.equals("admin")){
                                                     Toast.makeText(LoginActivity.this, "Welcome Back !",Toast.LENGTH_LONG).show();
                                                     Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
@@ -144,8 +145,8 @@ public class LoginActivity extends Activity {
     }
 
     public void onClickLoginButton(View view) {
-                String email = emailEdit.getText().toString().trim();
-        String password = passEdit.getText().toString();
+        String email = emailEdit.getText().toString().trim();
+        String password = passEdit.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email))
                 {
@@ -158,7 +159,6 @@ public class LoginActivity extends Activity {
                     passEdit.setError("Please enter password");
                     return;
                 }
-
                 else
                 {
                     loginEmail(email, password);

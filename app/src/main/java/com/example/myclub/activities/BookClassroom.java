@@ -131,8 +131,6 @@ public class BookClassroom extends Activity {
         String bookedForClubName =clubList.get(0).toString();
         String token = timestamp.toString();
 
-
-
         if(!TextUtils.isEmpty(edDate.getText())
                 && !classID.isEmpty()
                 && spinnerLocation.getSelectedItem() != null
@@ -158,14 +156,15 @@ public class BookClassroom extends Activity {
             }if(TextUtils.isEmpty(edDate.getText())){
                 edDate.setError("Date is required!");
                 return;}
-            if(spinnerLocation.getSelectedItem() == null){
-                spinnerLocation.setError("Location is required!");
-                return;
-            }
             if (spinnerTime.getSelectedItem() == null){
                 spinnerTime.setError("Time is required!");
                 return;
             }
+            if(spinnerLocation.getSelectedItem() == null){
+                spinnerLocation.setError("Location is required!");
+                return;
+            }
+
 
         }
 

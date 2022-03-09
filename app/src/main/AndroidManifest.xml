@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myclub"
-    tools:ignore="ImpliedTouchscreenHardware,MissingLeanbackLauncher">
+    tools:ignore="ImpliedTouchscreenHardware,MissingLeanbackLauncher" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission
@@ -32,40 +32,37 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyClub">
-
-        <activity android:name=".activities.OnBoardingPage1"/>
-        <activity android:name=".activities.OnBoardingPage2"/>
-        <activity android:name=".activities.OnBoardingPage3"/>
-        <activity android:name=".activities.OnBoardingPage4"/>
-        <activity android:name=".activities.OnBoardingPage5"/>
-        <activity android:name=".register.RegisterActivity"/>
-        <activity android:name=".activities.AdminHomeActivity"/>
-        <activity android:name=".activities.AdvisorHomeActivity"/>
-        <activity android:name=".activities.StudentHomeActivity"/>
-        <activity android:name=".activities.ProfileActivity"/>
-        <activity android:name=".activities.CreateClubActivity"/>
-        <activity android:name=".activities.ClubListActivity"/>
-        <activity android:name=".activities.ClubDetails"/>
-        <activity android:name=".activities.BookClassroom"/>
-        <activity android:name=".activities.ApproveClubBookings"/>
-        <activity android:name=".activities.BookingList"/>
-        <activity android:name=".activities.ClubbookingList"/>
-        <activity android:name=".activities.JoinClubActivity"/>
-        <activity android:name=".activities.MyClubActivity"/>
-        <activity android:name=".activities.CreatePostActivity"/>
-        <activity android:name=".activities.MainActivity"/>
-        <activity android:name=".activities.ApprovePostActivity"/>
-        <activity android:name=".activities.ViewClubActivity"/>
-        <activity android:name=".activities.ViewMyClubPosts"/>
-        <activity android:name=".activities.ViewClubMember"/>
-        <activity android:name=".activities.ActivityDashboard"/>
-
-
-        <activity android:name=".login.LoginActivity"/>
+        android:theme="@style/Theme.MyClub" >
+        <activity android:name=".activities.OnBoardingPage1" />
+        <activity android:name=".activities.OnBoardingPage2" />
+        <activity android:name=".activities.OnBoardingPage3" />
+        <activity android:name=".activities.OnBoardingPage4" />
+        <activity android:name=".activities.OnBoardingPage5" />
+        <activity android:name=".register.RegisterActivity" />
+        <activity android:name=".activities.AdminHomeActivity" />
+        <activity android:name=".activities.AdvisorHomeActivity" />
+        <activity android:name=".activities.StudentHomeActivity" />
+        <activity android:name=".activities.ProfileActivity" />
+        <activity android:name=".activities.CreateClubActivity" />
+        <activity android:name=".activities.ClubListActivity" />
+        <activity android:name=".activities.ClubDetails" />
+        <activity android:name=".activities.BookClassroom" />
+        <activity android:name=".activities.ApproveClubBookings" />
+        <activity android:name=".activities.BookingList" />
+        <activity android:name=".activities.ClubbookingList" />
+        <activity android:name=".activities.JoinClubActivity" />
+        <activity android:name=".activities.MyClubActivity" />
+        <activity android:name=".activities.CreatePostActivity" />
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.ApprovePostActivity" />
+        <activity android:name=".activities.ViewClubActivity" />
+        <activity android:name=".activities.ViewMyClubPosts" />
+        <activity android:name=".activities.ViewClubMember" />
+        <activity android:name=".activities.ActivityDashboard" />
+        <activity android:name=".login.LoginActivity" />
         <activity
             android:name=".login.CheckAuthUser"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

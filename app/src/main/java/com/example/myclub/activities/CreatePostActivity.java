@@ -72,12 +72,8 @@ public class CreatePostActivity extends Activity {
         //link to ui elements
         edTitle = findViewById(R.id.edPostTitle);
         edDesc = findViewById(R.id.edPostDesc);
-
         imageView = (ImageView) findViewById(R.id.pickImage);
-
-
         storageReference = FirebaseStorage.getInstance().getReference("PostImages");
-
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setMessage("Please wait, Sending Post Form..");
 

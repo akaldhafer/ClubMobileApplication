@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">MyClub</string>
-    <string name="about">We are MyClub from Malaysia</string>
+    <string name="about">We are MyClub</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>

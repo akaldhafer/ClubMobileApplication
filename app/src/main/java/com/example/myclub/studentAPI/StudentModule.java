@@ -25,6 +25,7 @@ public class StudentModule {
         this.clubList = clubList;
     }
 
+
     public StudentModule() {
     }
 
@@ -59,9 +60,6 @@ public class StudentModule {
     public void setStudentPassword(String studentPassword) {
         this.studentPassword = studentPassword;
     }
-
-
-
     public String getIsAdvisor() {
         return isAdvisor;
     }
