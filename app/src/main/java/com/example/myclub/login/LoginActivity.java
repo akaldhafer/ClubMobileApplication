@@ -18,6 +18,7 @@ import com.example.myclub.R;
 
 import com.example.myclub.activities.AdminHomeActivity;
 import com.example.myclub.activities.AdvisorHomeActivity;
+import com.example.myclub.activities.MainActivity;
 import com.example.myclub.activities.StudentHomeActivity;
 import com.example.myclub.register.RegisterActivity;
 import com.example.myclub.studentAPI.StudentModule;
@@ -117,9 +118,21 @@ public class LoginActivity extends Activity {
                                                     startActivity(intent);
                                                     finish();
                                                 }
+                                                else{
+                                                    Toast.makeText(LoginActivity.this, "Please register again",Toast.LENGTH_LONG).show();
+                                                    Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                    startActivity(intent);
+                                                    finish();
+                                                }
 
                                             } catch (Exception e) {
                                                 e.printStackTrace();
+                                                Toast.makeText(LoginActivity.this, "Please register again",Toast.LENGTH_LONG).show();
+                                                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                startActivity(intent);
+                                                finish();
                                             }
                                         }
                                     }
@@ -127,9 +140,16 @@ public class LoginActivity extends Activity {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(LoginActivity.this, "Something went wrong",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(LoginActivity.this, e.getMessage(),Toast.LENGTH_LONG).show();
                                 }
                             });
+                        }
+                        else{
+                            Toast.makeText(LoginActivity.this, "Please register again",Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            finish();
                         }
                  }
                 })

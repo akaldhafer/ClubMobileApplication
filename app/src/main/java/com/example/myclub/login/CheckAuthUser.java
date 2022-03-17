@@ -17,6 +17,7 @@ import com.example.myclub.activities.AdvisorHomeActivity;
 import com.example.myclub.activities.MainActivity;
 import com.example.myclub.activities.OnBoardingPage1;
 import com.example.myclub.activities.StudentHomeActivity;
+import com.example.myclub.register.RegisterActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -65,7 +66,7 @@ public class CheckAuthUser extends Activity {
                                 ArrayList<String> clubList =(ArrayList<String>) task.getResult().getDocuments().get(i).get("clubList");
 
                                 //check user type
-                                if(studentEmail.equals(email) && isAdvisor.equals("admin")){
+                                if(studentEmail.equals(uid) && isAdvisor.equals("admin")){
                                     Toast.makeText(CheckAuthUser.this, "Welcome Back !",Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(CheckAuthUser.this, AdminHomeActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -78,7 +79,7 @@ public class CheckAuthUser extends Activity {
                                     startActivity(intent);
                                     finish();
                                 }
-                                else if(studentEmail.equals(email) && isAdvisor.equals("advisor")){
+                                else if(studentEmail.equals(uid) && isAdvisor.equals("advisor")){
                                     Toast.makeText(CheckAuthUser.this, "Welcome Back !",Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(CheckAuthUser.this, AdvisorHomeActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -91,7 +92,7 @@ public class CheckAuthUser extends Activity {
                                     startActivity(intent);
                                     finish();
                                 }
-                                else if(studentEmail.equals(email) && isAdvisor.equals("student")){
+                                else if(studentEmail.equals(uid) && isAdvisor.equals("student")){
                                     Toast.makeText(CheckAuthUser.this, "Welcome Back !",Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(CheckAuthUser.this, StudentHomeActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -103,10 +104,21 @@ public class CheckAuthUser extends Activity {
                                     intent.putStringArrayListExtra("clublist", clubList);
                                     startActivity(intent);
                                     finish();
+                                }else{
+                                    Toast.makeText(CheckAuthUser.this, "Please register again",Toast.LENGTH_LONG).show();
+                                    Intent intent = new Intent(CheckAuthUser.this, RegisterActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+                                    finish();
                                 }
 
                             } catch (Exception e) {
                                 e.printStackTrace();
+                                Toast.makeText(CheckAuthUser.this, e.getMessage(),Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(CheckAuthUser.this, MainActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                finish();
                             }
                         }
                     }
