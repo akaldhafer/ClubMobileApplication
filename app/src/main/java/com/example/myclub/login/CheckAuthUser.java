@@ -104,14 +104,7 @@ public class CheckAuthUser extends Activity {
                                     intent.putStringArrayListExtra("clublist", clubList);
                                     startActivity(intent);
                                     finish();
-                                }else{
-                                    Toast.makeText(CheckAuthUser.this, "Please register again",Toast.LENGTH_LONG).show();
-                                    Intent intent = new Intent(CheckAuthUser.this, RegisterActivity.class);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    startActivity(intent);
-                                    finish();
                                 }
-
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 Toast.makeText(CheckAuthUser.this, e.getMessage(),Toast.LENGTH_LONG).show();

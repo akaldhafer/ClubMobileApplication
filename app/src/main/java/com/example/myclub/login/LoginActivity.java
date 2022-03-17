@@ -118,13 +118,7 @@ public class LoginActivity extends Activity {
                                                     startActivity(intent);
                                                     finish();
                                                 }
-                                                else{
-                                                    Toast.makeText(LoginActivity.this, "Please register again",Toast.LENGTH_LONG).show();
-                                                    Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                                    startActivity(intent);
-                                                    finish();
-                                                }
+
 
                                             } catch (Exception e) {
                                                 e.printStackTrace();
