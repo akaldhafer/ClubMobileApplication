@@ -105,6 +105,7 @@ public class CheckAuthUser extends Activity {
                                     startActivity(intent);
                                     finish();
                                 }
+
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 Toast.makeText(CheckAuthUser.this, e.getMessage(),Toast.LENGTH_LONG).show();
@@ -126,6 +127,7 @@ public class CheckAuthUser extends Activity {
                     finish();
                 }
             });
+
         }
         else{
             Intent intent = new Intent(CheckAuthUser.this, MainActivity.class);

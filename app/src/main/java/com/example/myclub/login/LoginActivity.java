@@ -91,6 +91,7 @@ public class LoginActivity extends Activity {
                                                     intent.putStringArrayListExtra("clublist", clubList);
                                                     startActivity(intent);
                                                     finish();
+
                                                 }
                                                 else if(studentEmail.equals(email) && isAdvisor.equals("advisor")){
                                                     Toast.makeText(LoginActivity.this, "Welcome Back !",Toast.LENGTH_LONG).show();
@@ -145,6 +146,7 @@ public class LoginActivity extends Activity {
                             startActivity(intent);
                             finish();
                         }
+
                  }
                 })
                 .addOnFailureListener(new OnFailureListener()
